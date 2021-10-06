@@ -1,0 +1,15 @@
+@mixin responsive($screen) {
+  // Tablet
+  @if ($screen == 'T') {
+    @media screen and (min-width: $md-breakpoint) {
+      @content;
+    }
+  }
+
+  // Desktop
+  @if ($screen == 'D') {
+    @media screen and (min-width: $lg-breakpoint) {
+      @content;
+    }
+  }
+}
