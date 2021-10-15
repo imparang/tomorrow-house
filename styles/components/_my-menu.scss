@@ -1,0 +1,61 @@
+.my-menu {
+  $tooltupe-size: 12px;
+
+  position: relative;
+
+  &-content {
+    @include pos-center-x();
+    border-radius: 4px;
+    box-shadow: $dropdown-shadow;
+
+    // 세모를 만든 것이 보더인데, 보더를 줘야하는 경우
+    &::before,
+    &::after {
+      @include pos-center-x();
+      top: -#{$tooltupe-size * 2};
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: $tooltupe-size solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: $tooltupe-size solid $black;
+      border-left: 10px solid transparent;
+      content: '';
+    }
+
+    &::before {
+      border-bottom-color: $border;
+    }
+
+    // after를 before 밑으로 내려서 보더처럼 만들어줌
+    &::after {
+      top: -#{$tooltupe-size * 2 - 2px};
+      border-bottom-color: $white;
+    }
+  }
+
+  &-list {
+    width: 200px;
+    padding: 8px;
+    background-color: $white;
+    border: 1px solid $border;
+    border-radius: 4px;
+  }
+
+  &-item {
+    a,
+    button {
+      width: 100%;
+      @include flexbox(start);
+      height: 44px;
+      // 이미 flexbox로 가운데 정렬을 해서 위아래로 패딩을 안줘도 됨
+      padding: 0 8px;
+      border-radius: 2px;
+      transition: background-color 200ms ease-in-out;
+
+      &:hover {
+        background-color: $background;
+      }
+    }
+  }
+}
