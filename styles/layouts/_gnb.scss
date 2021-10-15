@@ -21,26 +21,16 @@
     }
   }
 
-  &-menu-button {
-    color: $blue;
-  }
-
   &-right {
     .button-group {
       @include flexbox(end);
     }
 
-    .gnb-search-button {
+    // 요소와의 간격 -> 요소 고유의 속성과는 뉘앙스가 좀 다름
+    // 일종의 레이아웃 이므로
+    .gnb-icon-button.is-search {
       margin-right: 4px;
     }
-  }
-
-  &-icon-button {
-    @include flexbox();
-    width: 32px;
-    height: 32px;
-    font-size: 24px;
-    color: $secondary;
   }
 
   @include responsive(T) {
