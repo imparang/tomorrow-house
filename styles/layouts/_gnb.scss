@@ -8,10 +8,13 @@
   }
 
   .logo {
+    $padding: 8px;
+
     @include pos-center();
 
     a {
       display: block;
+      padding: $padding;
     }
 
     img {

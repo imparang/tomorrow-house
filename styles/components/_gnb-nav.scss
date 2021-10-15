@@ -1,15 +1,30 @@
 .gnb-nav {
+  $padding: 8px;
+
   &-list {
     @include flexbox(start);
+    // logo에도 padding을 줌
+    margin-left: -($padding * 2);
   }
 
   &-item {
+    &.is-active,
+    &:hover {
+      a {
+        color: $blue;
+      }
+    }
+
     ~ .gnb-nav-item {
-      margin-left: 24px;
+      margin-left: 24px - ($padding * 2);
     }
 
     a {
       @include text-style(18, $primary);
+      // UX를 위해서 클릭 범위를 넓혀줌
+      // 하지만 기존의 간격을 무시하면 안되고 이를 해결해야함
+      display: block;
+      padding: $padding;
       font-weight: 700;
     }
   }
