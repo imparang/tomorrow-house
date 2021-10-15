@@ -4,7 +4,7 @@
   &-list {
     @include flexbox(start);
     // logo에도 padding을 줌
-    margin-left: -($padding * 2);
+    margin-left: -#{$padding * 2};
   }
 
   &-item {

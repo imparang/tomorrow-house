@@ -47,7 +47,7 @@
     background-color: $red;
 
     // 8px 이상부터는 동그래진다.
-    border-radius: $badge-size / 2;
+    border-radius: #{$badge-size / 2};
   }
 
   @include responsive(T) {
