@@ -3,16 +3,24 @@ sidebar를 끝까지 스크롤했을 경우, overlay 아래의 컨텐츠도 스�
 이러한 경험은 UX를 떨어뜨리기 때문에 처리해주어야 한다.
 */
 .sidebar {
+  $sidebar-width: 240px;
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: $sidebar-level;
-  width: 240px;
+  width: $sidebar-width;
   height: 100vh;
   padding: 32px 20px;
   overflow-y: auto;
   background-color: $white;
+  transform: translate3d(-#{$sidebar-width}, 0, 0);
+  transition: transform 300ms ease-in-out;
   overscroll-behavior: contain;
+
+  &.is-active {
+    transform: translate3d(0, 0, 0);
+  }
 
   &-header {
     padding: 0 12px;
