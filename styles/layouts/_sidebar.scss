@@ -1,7 +1,18 @@
+/*
+sidebar를 끝까지 스크롤했을 경우, overlay 아래의 컨텐츠도 스크롤되는 경우가 있다.
+이러한 경험은 UX를 떨어뜨리기 때문에 처리해주어야 한다.
+*/
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $sidebar-level;
   width: 240px;
+  height: 100vh;
   padding: 32px 20px;
+  overflow-y: auto;
   background-color: $white;
+  overscroll-behavior: contain;
 
   &-header {
     padding: 0 12px;
@@ -67,5 +78,9 @@
     a {
       width: 84px;
     }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
