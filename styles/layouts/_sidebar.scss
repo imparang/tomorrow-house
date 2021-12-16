@@ -1,0 +1,71 @@
+.sidebar {
+  width: 240px;
+  padding: 32px 20px;
+  background-color: $white;
+
+  &-header {
+    padding: 0 12px;
+
+    .logo {
+      @include flexbox(start);
+
+      a {
+        display: block;
+      }
+
+      img {
+        display: block;
+        width: auto;
+        height: 20px;
+      }
+    }
+  }
+
+  &-user,
+  &-auth {
+    // 버튼의 크기가 변하면 padding값을 계속 비율에 맞게 바꿔줘야 함
+    // 디자인 시안에 따르면 항상 헤더와 컨텐트 사이의 높이가 88px이므로 이와 같이 만듬
+    @include flexbox(start);
+    height: 88px;
+  }
+
+  &-user {
+    // padding: 32px 0;
+
+    a {
+      @include flexbox(start);
+      @include text-style(14, $primary);
+      width: 100%;
+      font-weight: 700;
+    }
+
+    // 만약에 username의 길이가 길 경우
+    // 1. 그냥 두 줄로 보여준다 -> flexbox로 인해 이미지만 찌그러짐
+    // 2. truncate, truncation을 사용 -> overflow: 기준점이 필요
+    .avatar-24 {
+      // 어떠한 경우에도 가만히 있는다.
+      // flex-grow: 0;
+      // flex-shrink: 0;
+      flex: none;
+      margin-right: 8px;
+    }
+
+    .user-name {
+      // 빈 공간 다 차지하렴~
+      flex-grow: 1;
+      // inline의 기본 흐름을 제어
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &-auth {
+    @include flexbox(between);
+    // padding: 24px 0;
+
+    a {
+      width: 84px;
+    }
+  }
+}
