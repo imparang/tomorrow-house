@@ -7,6 +7,15 @@
   height: 100vh;
   padding: 12px 0;
   background-color: $white;
+  // transform으로 on/off를 컨트롤하는 이유: transition 때문에
+  // transition이 작동되지 않는 속성: display
+  // transition과 잘 맞지 않는 속성: width, height, padding, margin, (border), top, left, right, bottom
+  transform: translate3d(100%, 0, 0);
+  transition: transform 300ms ease-in-out;
+
+  &.is-active {
+    transform: translate3d(0, 0, 0);
+  }
 
   &-header {
     margin-bottom: 20px;
